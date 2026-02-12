@@ -5,6 +5,7 @@ if [[ -z "${diskname:-}" ]]; then
     exit 1
 fi
 
+# create partitions
 parted -s "$diskname" mklabel gpt
 
 parted -s "$diskname" mkpart "EFI" fat32 1MiB 1025MiB
@@ -12,3 +13,13 @@ parted -s "$diskname" set 1 esp on
 
 parted -s "$diskname" mkpart "root" ext4 1025MiB 100%
 parted -s "$diskname" type 2 4F68BCE3-E8CD-4DB1-96E7-FBCAF984B709
+
+# create filesystems
+mkfs.fat -F32 "${diskname}1"
+mkfs.ext4 "${diskname}2"
+
+# mount filesystems
+mkdir /mnt/boot
+
+mount "${diskname}2 /mnt
+mount "${diskname}1 /mnt/boot
