@@ -1,6 +1,7 @@
 #!/bin/bash
 
-hostname='archy'
-username='yorick'
-timezone='Europe/Berlin'
-locale='EN_en.UTF8'
+diskname="/div/sda"
+hostname="archy"
+username="yorick"
+timezone="Europe/Berlin"
+locale="EN_en.UTF8"
