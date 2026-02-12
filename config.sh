@@ -1,6 +1,6 @@
 #!/bin/bash
 
-diskname="/div/sda"
+diskname="/dev/sda"
 hostname="archy"
 username="yorick"
 timezone="Europe/Berlin"
