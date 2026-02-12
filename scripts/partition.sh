@@ -29,7 +29,8 @@ mkfs.ext4 -F "$part2"
 
 # mount filesystems
 echo "Partition: mount filesystems"
-mkdir /mnt/boot -p
-
+mkdir -p /mnt
 mount "$part2" /mnt
+
+mkdir -p /mnt/boot
 mount "$part1" /mnt/boot
